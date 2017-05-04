@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Loading from './Loading';
 import Repos from './Repos';
 
 class App extends Component {
@@ -6,7 +7,7 @@ class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			orgData: {},
+			orgData: null,
 			reposData: [],
 			eventsData: []
 		}
@@ -51,10 +52,15 @@ class App extends Component {
 	}
 
 	render() {
+
+		if (!this.state.orgData) {
+			return <Loading message="Loading organisation data..."/>
+		}
+
 		return (
 			<div className="App">
 				<section>
-					<h1>organistion-dashboard</h1>
+					<h1><a href={ this.state.orgData.blog }>organistion-dashboard</a></h1>
 					<p className="Nav">
 						<a href={ this.state.orgData.html_url }>github</a>
 						<a href={ this.state.orgData.repos_url }>api.repos</a>

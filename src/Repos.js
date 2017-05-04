@@ -4,7 +4,7 @@ import Repo from './Repo';
 
 export default function Repos(props) {
 	if (!props.repos) {
-		return <Loading/>
+		return <Loading message="Loading repos..."/>
 	}
 	return (
 		<div className="Repos">
