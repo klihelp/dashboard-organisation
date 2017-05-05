@@ -11,6 +11,10 @@ class Repo extends Component {
 		}
 	}
 
+	componentDidMount() {
+		this.insertPR(this.props.repo.pulls_url);
+	}
+
 	clean (url) {
 		let filter = /{\/*.*}$/gm
 		return url.replace(filter, '');
@@ -31,16 +35,13 @@ class Repo extends Component {
 				<nav className="Nav">
 					<strong>{repo.name}</strong>
 					<span>-</span>
-					<a href={ repo.html_url }>gh</a>
-					<a href={ repo.homepage }>site</a>
+					<a href={ repo.html_url } title="Git URL">gh</a>
+					<a href={ repo.homepage } title="Project homepage">site</a>
 					<span>-</span>
 					<a href={ this.clean(repo.issues_url) }>issues.api ({ repo.open_issues })</a>
 					<a href={ this.clean(repo.pulls_url) }>pr.api</a>
-					<a onClick={ (e) => this.insertPR(repo.pulls_url) }>load.pr</a>
 				</nav>
-				<article className="PullRequests">
-					<PullRequests items={ this.state.prsData }/>
-				</article>
+				<PullRequests items={ this.state.prsData }/>
 			</div>
 		)
 	}

@@ -7,7 +7,7 @@ export default function Repos(props) {
 		return <Loading message="Loading list..."/>
 	}
 	return (
-		<div className="List">
+		<div className="List List--repos">
 			{ props.repos.map((repo, i) => <Repo key={i} repo={repo} />) }
 		</div>
 	)

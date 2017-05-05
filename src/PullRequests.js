@@ -6,8 +6,8 @@ export default function Repos(props) {
 		return null;
 	}
 	return (
-		<div className="List">
+		<section className="List PullRequests">
 			{ props.items.map((repo, i) => <PullRequest key={i} data={repo} />) }
-		</div>
+		</section>
 	)
 }
