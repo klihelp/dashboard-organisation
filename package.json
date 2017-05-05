@@ -1,5 +1,5 @@
 {
-  "name": "organisation-dashboard",
+  "name": "dashboard-organisation",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
