@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { fetchEndpoint, getOrg } from './api';
 import Loading from './Loading';
 import Repos from './Repos';
 
@@ -20,9 +21,9 @@ class App extends Component {
 			return this.handleError('Parameter value <App organisation=""> is missing');
 		}
 
-		this.getOrg(organisation).then(orgData => {
-			this.fetchEndpoint(orgData.repos_url).then(reposData => {
-				this.fetchEndpoint(orgData.events_url).then(eventsData => {
+		getOrg(organisation).then(orgData => {
+			fetchEndpoint(orgData.repos_url).then(reposData => {
+				fetchEndpoint(orgData.events_url).then(eventsData => {
 					this.setState({
 						orgData,
 						reposData,
@@ -38,17 +39,6 @@ class App extends Component {
 
 	handleError(e) {
 		throw new Error(e);
-	}
-
-	getOrg(org) {
-		return fetch(`https://api.github.com/orgs/${org}`).then(res => {
-			return res.json();
-		})
-	}
-	fetchEndpoint(url) {
-		return fetch(url).then(res => {
-			return res.json();
-		})
 	}
 
 	render() {
