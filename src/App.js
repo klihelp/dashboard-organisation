@@ -21,6 +21,8 @@ class App extends Component {
 			return this.handleError('Parameter value <App organisation=""> is missing');
 		}
 
+		document.title = `${organisation} dashboard`
+
 		getOrg(organisation).then(orgData => {
 			fetchEndpoint(orgData.repos_url).then(reposData => {
 				fetchEndpoint(orgData.events_url).then(eventsData => {
