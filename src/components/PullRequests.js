@@ -6,8 +6,11 @@ export default function Repos(props) {
 		return null;
 	}
 	return (
-		<section className="List PullRequests">
-			{ props.items.map((repo, i) => <PullRequest key={i} data={repo} />) }
-		</section>
+		<div className="PullRequests">
+			<span>PR:</span>
+			<div className="List List--pullRequests">
+				{ props.items.map((repo, i) => <PullRequest key={i} data={repo} />) }
+			</div>
+		</div>
 	)
 }

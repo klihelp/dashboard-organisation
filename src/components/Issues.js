@@ -7,8 +7,11 @@ export default function Issues(props) {
 		return <Loading message="Loading list..."/>
 	}
 	return (
-		<div className="List List--issues">
-			{ props.items.map((issue, i) => <Issue key={i} issue={issue} />) }
+		<div className="Issues">
+			<span>Issues:</span>
+			<div className="List List--issues">
+				{ props.items.map((issue, i) => <Issue key={i} data={issue} />) }
+			</div>
 		</div>
 	)
 }
