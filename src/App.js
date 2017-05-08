@@ -53,7 +53,7 @@ class App extends Component {
 			<div className="App">
 				<section>
 					<nav className="Nav">
-						<a className="SiteTitle" href={ this.state.orgData.blog }><h1>{ this.state.orgData.login }</h1></a>
+						<a href={ this.state.orgData.blog }>{ this.state.orgData.login }</a>
 						<a href={ this.state.orgData.html_url }>github</a>
 						<a href={ this.state.orgData.repos_url }>api.repos</a>
 						<a href={ this.state.orgData.events_url }>api.events</a>

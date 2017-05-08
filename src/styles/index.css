@@ -1,3 +1,6 @@
+/* dashboard-organisation */
+/* https://github.com/Internet4000/dashboard-organisation  */
+
 body {
   margin: 0;
   padding: 1rem;
@@ -12,8 +15,8 @@ a,
 a:visited {
 	color: rgb(0, 0, 238);
 }
-.SiteTitle {
-	display: inline-block;
+section {
+	margin-bottom: 1rem;
 }
 .Nav a {
 	padding-left: 0.4rem;
@@ -30,8 +33,11 @@ a:visited {
 
 .Issues,
 .PullRequests {
-    margin-left: 1rem;
+  margin-left: 0.3rem;
+	padding-left: 0.3rem;
+	border-left: 3px solid transparent;
 }
 .PullRequests {
 	margin-bottom: 0.3rem;
+	border-left-color: black;
 }
