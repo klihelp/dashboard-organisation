@@ -35,11 +35,9 @@ class Repo extends Component {
 		return (
 			<article className="Repo">
 				<nav className="Repo-nav Nav">
-					<strong>{repo.name}</strong>
+					<strong title={ repo.description }>{repo.name}</strong>
 					<a href={ repo.html_url } title="Git URL">gh</a>
 					<a href={ repo.homepage } title="Project homepage">site</a>
-					<a href={ this.clean(repo.issues_url) }>issues.api ({ repo.open_issues })</a>
-					<a href={ this.clean(repo.pulls_url) }>pr.api</a>
 				</nav>
 				<div className="Repo-body">
 					<PullRequests items={ prsData }/>

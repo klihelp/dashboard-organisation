@@ -60,7 +60,6 @@ class App extends Component {
 					</nav>
 				</section>
 				<section>
-					<h2>Repos</h2>
 					<Repos repos={ this.state.reposData }/>
 				</section>
 			</div>

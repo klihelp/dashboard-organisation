@@ -19,12 +19,13 @@ a:visited {
 	padding-left: 0.4rem;
 	padding-right: 0.4rem;
 }
-
 .Repo {
 	margin-bottom: 1rem;
 }
 .Repo-body {
 	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
 }
 
 .Issues,
