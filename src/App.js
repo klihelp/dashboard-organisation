@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { fetchEndpoint, getOrg } from './api';
-import Loading from './Loading';
-import Repos from './Repos';
+import Loading from './components/Loading';
+import Repos from './components/Repos';
 
 class App extends Component {
 
