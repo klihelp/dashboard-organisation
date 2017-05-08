@@ -21,9 +21,16 @@ a:visited {
 }
 
 .Repo {
-	margin-bottom: 0.2rem;
+	margin-bottom: 1rem;
+}
+.Repo-body {
+	display: flex;
 }
 
+.Issues,
+.PullRequests {
+    margin-left: 1rem;
+}
 .PullRequests {
 	margin-bottom: 0.3rem;
 }
