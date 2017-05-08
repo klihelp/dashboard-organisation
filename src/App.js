@@ -52,7 +52,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<section>
-					<h1><a href={ this.state.orgData.blog }>organistion-dashboard</a></h1>
+					<h1><a href={ this.state.orgData.blog }>{ this.state.orgData.login }</a></h1>
 					<p className="Nav">
 						<a href={ this.state.orgData.html_url }>github</a>
 						<a href={ this.state.orgData.repos_url }>api.repos</a>
