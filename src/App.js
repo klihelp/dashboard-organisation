@@ -52,12 +52,12 @@ class App extends Component {
 		return (
 			<div className="App">
 				<section>
-					<h1><a href={ this.state.orgData.blog }>{ this.state.orgData.login }</a></h1>
-					<p className="Nav">
+					<nav className="Nav">
+						<a className="SiteTitle" href={ this.state.orgData.blog }><h1>{ this.state.orgData.login }</h1></a>
 						<a href={ this.state.orgData.html_url }>github</a>
 						<a href={ this.state.orgData.repos_url }>api.repos</a>
 						<a href={ this.state.orgData.events_url }>api.events</a>
-					</p>
+					</nav>
 				</section>
 				<section>
 					<h2>Repos</h2>

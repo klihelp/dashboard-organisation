@@ -1,10 +1,9 @@
 import React from 'react';
-import Loading from './Loading';
 import Issue from './Issue';
 
 export default function Issues(props) {
-	if (!props.items) {
-		return <Loading message="Loading list..."/>
+	if (props.items.length === 0) {
+		return null;
 	}
 	return (
 		<div className="Issues">

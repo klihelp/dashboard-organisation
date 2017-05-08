@@ -2,7 +2,7 @@ import React from 'react';
 import PullRequest from './PullRequest';
 
 export default function Repos(props) {
-	if (!props.items) {
+	if (props.items.length === 0) {
 		return null;
 	}
 	return (
