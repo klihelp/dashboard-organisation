@@ -8,6 +8,7 @@ import { fetchEndpoint, getOrg } from './api';
 import Loading from './components/Loading';
 import Home from './components/Home';
 import Repos from './components/Repos';
+import Events from './components/Events';
 import Shortcuts from './components/Shortcuts';
 
 class App extends Component {
@@ -61,14 +62,16 @@ class App extends Component {
 				<div className="App">
 					<section>
 						<nav className="Nav Nav--main">
-							<Link to="/home">home</Link>
+							<Link to="/info">info</Link>
 							<Link to="/">repos</Link>
+							<Link to="/events">Events</Link>
 							<Link to="/shortcuts">Shortcuts</Link>
 						</nav>
 					</section>
 					<section>
-						<Route path="/home" component={ () => ( <Home model={ this.state.orgData }/> ) }/>
+						<Route path="/info" component={ () => ( <Home model={ this.state.orgData }/> ) }/>
 						<Route exact path="/" component={ () => ( <Repos repos={ this.state.reposData }/> ) }/>
+						<Route path="/events" component={ () => ( <Events events={ this.state.eventsData }/> ) }/>
 						<Route path="/shortcuts" component={ Shortcuts }/>
 					</section>
 				</div>
