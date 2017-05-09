@@ -37,7 +37,7 @@ class Repo extends Component {
 				<nav className="Repo-nav Nav">
 					<strong title={ repo.description }>{repo.name}</strong>
 					<a href={ repo.html_url }>gh</a>
-					<a href={ repo.homepage }>site</a>
+					{ repo.homepage && <a href={ repo.homepage }>site</a> }
 				</nav>
 				<div className="Repo-body">
 					<PullRequests items={ prsData }/>
