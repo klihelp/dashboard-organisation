@@ -24,9 +24,18 @@ class Repo extends Component {
 		})
 	}
 
-	clean (url) {
+	clean(url) {
 		let filter = /{\/*.*}$/gm
 		return url.replace(filter, '');
+	}
+
+	getDates() {
+		let { repo } = this.props;
+
+		return (
+			`updated:${repo.updated_at}
+pushed: ${repo.pushed_at}`
+		)
 	}
 
 	render() {
@@ -36,7 +45,7 @@ class Repo extends Component {
 			<article className="Repo">
 				<nav className="Repo-nav Nav">
 					<strong title={ repo.description }>{repo.name}</strong>
-					<a href={ repo.html_url }>gh</a>
+					<a href={ repo.html_url } title={ this.getDates() }>gh</a>
 					{ repo.homepage && <a href={ repo.homepage }>site</a> }
 				</nav>
 				<div className="Repo-body">
