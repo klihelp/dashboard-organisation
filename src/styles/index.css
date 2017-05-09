@@ -18,12 +18,21 @@ a:visited {
 a:focus {
     background-color: #c5c5c5;
 }
+
+.App {
+	display: flex;
+}
 section {
 	margin-bottom: 1rem;
 }
 .Nav a {
 	padding-left: 0.4rem;
 	padding-right: 0.4rem;
+}
+.Nav--main {
+	display: flex;
+	flex-direction: column;
+	min-width: 5rem;
 }
 .Repo {
 	margin-bottom: 1rem;
@@ -43,4 +52,12 @@ section {
 .PullRequests {
 	margin-bottom: 0.3rem;
 	border-left-color: black;
+}
+
+
+/* Shortcuts */
+.Shortcut-key {
+	display: inline-block;
+	padding: 0.1rem;
+	min-width: 3rem;
 }

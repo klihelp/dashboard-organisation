@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 import { fetchEndpoint, getOrg } from './api';
 import Loading from './components/Loading';
+import Home from './components/Home';
 import Repos from './components/Repos';
+import Shortcuts from './components/Shortcuts';
 
 class App extends Component {
 
@@ -50,20 +57,23 @@ class App extends Component {
 		}
 
 		return (
-			<div className="App">
-				<section>
-					<nav className="Nav">
-						<a href={ this.state.orgData.blog } ref={ a => a && a.focus() }>{ this.state.orgData.login }</a>
-						<a href={ this.state.orgData.html_url }>github</a>
-						<a href={ this.state.orgData.repos_url }>api.repos</a>
-						<a href={ this.state.orgData.events_url }>api.events</a>
-					</nav>
-				</section>
-				<section>
-					<Repos repos={ this.state.reposData }/>
-				</section>
-			</div>
-		);
+			<Router>
+				<div className="App">
+					<section>
+						<nav className="Nav Nav--main">
+							<Link to="/home">home</Link>
+							<Link to="/">repos</Link>
+							<Link to="/shortcuts">Shortcuts</Link>
+						</nav>
+					</section>
+					<section>
+						<Route path="/home" component={ () => ( <Home model={ this.state.orgData }/> ) }/>
+						<Route exact path="/" component={ () => ( <Repos repos={ this.state.reposData }/> ) }/>
+						<Route path="/shortcuts" component={ Shortcuts }/>
+					</section>
+				</div>
+			</Router>
+		)
 	}
 }
 
