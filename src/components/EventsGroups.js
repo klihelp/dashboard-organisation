@@ -7,7 +7,7 @@ export default function Events(props) {
 
 	return (
 
-		<div className="Events">
+		<div className="EventsGroups">
 			{ _.map(groups, (group, repo) => <EventsGroup key={ repo } name={ repo } events={ group }/>) }
 		</div>
 	)
