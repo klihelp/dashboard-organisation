@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Shortcuts() {
 	return (
-		<div classNames="Shortcuts">
+		<div className="Shortcuts">
 			<article className="Shortcut">
 				<pre className="Shortcut-key">TAB</pre> move focus to next link
 			</article>

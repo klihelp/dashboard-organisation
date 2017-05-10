@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
   Route,
@@ -8,7 +9,7 @@ import { fetchEndpoint, getOrg } from './api';
 import Loading from './components/Loading';
 import Home from './components/Home';
 import Repos from './components/Repos';
-import Events from './components/Events';
+import EventsGroups from './components/EventsGroups';
 import Shortcuts from './components/Shortcuts';
 
 class App extends Component {
@@ -46,6 +47,9 @@ class App extends Component {
 			})
 		}).catch(this.handleError);
 	}
+	componentDidUpdate() {
+		ReactDOM.findDOMNode(this.reposLink).focus();
+	}
 
 	handleError(e) {
 		throw new Error(e);
@@ -60,18 +64,18 @@ class App extends Component {
 		return (
 			<Router>
 				<div className="App">
-					<section>
+					<section className="Aside">
 						<nav className="Nav Nav--main">
-							<Link to="/info">info</Link>
-							<Link to="/">repos</Link>
+							<Link to="/" ref={ a => { this.reposLink = a } }>repos</Link>
 							<Link to="/events">Events</Link>
+							<Link to="/info">info</Link>
 							<Link to="/shortcuts">Shortcuts</Link>
 						</nav>
 					</section>
-					<section>
+					<section tabIndex="-1">
 						<Route path="/info" component={ () => ( <Home model={ this.state.orgData }/> ) }/>
 						<Route exact path="/" component={ () => ( <Repos repos={ this.state.reposData }/> ) }/>
-						<Route path="/events" component={ () => ( <Events events={ this.state.eventsData }/> ) }/>
+						<Route path="/events" component={ () => ( <EventsGroups events={ this.state.eventsData }/> ) }/>
 						<Route path="/shortcuts" component={ Shortcuts }/>
 					</section>
 				</div>
