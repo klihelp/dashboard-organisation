@@ -1,6 +1,10 @@
 /* dashboard-organisation */
 /* https://github.com/Internet4000/dashboard-organisation  */
 
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+html {overflow: -moz-scrollbars-none;}
 body {
   margin: 0;
   font-family: sans-serif;
@@ -59,7 +63,18 @@ section {
 	margin-bottom: 0.3rem;
 	border-left-color: black;
 }
-
+.EventsGroup {
+	padding-bottom: 1rem;
+}
+.Events {
+	padding-left: 1rem;
+}
+.Commits {
+	padding-left: 1rem;
+}
+.Commit {
+	margin-bottom: 0;
+}
 
 /* Shortcuts */
 .Shortcut-key {

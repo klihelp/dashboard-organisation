@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Home(props) {
+export default function Infos(props) {
 	let { model } = props;
 	return (
 		<nav className="Nav">

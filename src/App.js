@@ -4,10 +4,10 @@ import {
   BrowserRouter as Router,
   Route,
   Link
-} from 'react-router-dom'
+} from 'react-router-dom';
 import { fetchEndpoint, getOrg } from './api';
 import Loading from './components/Loading';
-import Home from './components/Home';
+import Infos from './components/Infos';
 import Repos from './components/Repos';
 import EventsGroups from './components/EventsGroups';
 import Shortcuts from './components/Shortcuts';
@@ -48,7 +48,8 @@ class App extends Component {
 		}).catch(this.handleError);
 	}
 	componentDidUpdate() {
-		ReactDOM.findDOMNode(this.reposLink).focus();
+		/* ReactDOM.findDOMNode(this.focusEl).focus();*/
+		this.focusEl.focus();
 	}
 
 	handleError(e) {
@@ -58,22 +59,22 @@ class App extends Component {
 	render() {
 
 		if (!this.state.orgData) {
-			return <Loading message="Loading organisation data..."/>
+			return <section><Loading message="Loading organisation data..."/></section>
 		}
 
 		return (
 			<Router>
 				<div className="App">
-					<section className="Aside">
+					<section tabIndex="-1" className="Aside">
 						<nav className="Nav Nav--main">
-							<Link to="/" ref={ a => { this.reposLink = a } }>repos</Link>
-							<Link to="/events">Events</Link>
-							<Link to="/info">info</Link>
-							<Link to="/shortcuts">Shortcuts</Link>
+							<Link to="/" >repos</Link>
+							<Link to="/events">events</Link>
+							<Link to="/infos">infos</Link>
+							<Link to="/shortcuts">shortcuts</Link>
 						</nav>
 					</section>
-					<section tabIndex="-1">
-						<Route path="/info" component={ () => ( <Home model={ this.state.orgData }/> ) }/>
+					<section ref={ focusEl => { this.focusEl = focusEl } }>
+						<Route path="/infos" component={ () => ( <Infos model={ this.state.orgData }/> ) }/>
 						<Route exact path="/" component={ () => ( <Repos repos={ this.state.reposData }/> ) }/>
 						<Route path="/events" component={ () => ( <EventsGroups events={ this.state.eventsData }/> ) }/>
 						<Route path="/shortcuts" component={ Shortcuts }/>
