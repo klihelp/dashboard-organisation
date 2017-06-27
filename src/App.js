@@ -53,7 +53,7 @@ class App extends Component {
 	}
 
 	handleError(e) {
-		throw new Error(e);
+		console.log(e)
 	}
 
 	render() {
