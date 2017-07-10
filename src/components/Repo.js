@@ -14,19 +14,14 @@ class Repo extends Component {
 	}
 
 	componentDidMount() {
-		fetchEndpoint(this.clean(this.props.repo.pulls_url)).then(prsData => {
-			fetchEndpoint(this.clean(this.props.repo.issues_url)).then(issuesData => {
+		fetchEndpoint(this.props.repo.pulls_url).then(prsData => {
+			fetchEndpoint(this.props.repo.issues_url).then(issuesData => {
 				this.setState({
 					prsData,
 					issuesData
 				});
 			})
 		})
-	}
-
-	clean(url) {
-		let filter = /{\/*.*}$/gm
-		return url.replace(filter, '');
 	}
 
 	getDates() {

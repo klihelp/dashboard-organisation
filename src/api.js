@@ -17,7 +17,12 @@ export function getUser(user) {
 }
 
 export function fetchEndpoint(url) {
-	return fetch(url).then(res => {
+	return fetch(clean(url)).then(res => {
 		return res.json();
 	})
+}
+
+function clean(url) {
+	let filter = /{\/*.*}$/gm
+	return url.replace(filter, '');
 }
