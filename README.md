@@ -28,7 +28,6 @@ You can of course use any other static host.
 Quick alternatives (one click):
 
 - deploy to [Netlify](https://app.netlify.com/start/deploy?repository=https://github.com/internet4000/dashboard-organisation)
-- deploy to Now.sh, [organisation](https://deploy.now.sh/?repo=https://github.com/internet4000/dashboard-organisation&env=REACT_APP_ORGANISATION) or [user](https://deploy.now.sh/?repo=https://github.com/internet4000/dashboard-organisation&env=REACT_APP_USER)
 
 ## Development
 
