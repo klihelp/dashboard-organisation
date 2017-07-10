@@ -5,10 +5,10 @@ A dashboard for a quick overview of a Github *organisation* or *user*.
 
 ## Usage & Deployment
 
-depending on whether you would like to use the dashboard for a Github organisation or a Github user you have to declare one of the following *environment variable*.
+Depending on whether you would like to use the dashboard for a Github organisation or a Github user you have to declare *one of* the following *environment variables*.
 
-- `REACT_APP_ORGANISATION`: ex, `internet4000` [github.com/internet4000](http://github.com/internet4000/)
-- `REACT_APP_USER`: ex, `hugurp` [github.com/hugurp](http://github.com/hugurp/)
+- `REACT_APP_ORGANISATION`: Github organisation username; ex, `internet4000` [github.com/internet4000](http://github.com/internet4000/)
+- `REACT_APP_USER`: Github user username; ex, `hugurp` [github.com/hugurp](http://github.com/hugurp/)
 
 Note: there are [other ways](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-custom-environment-variables) to declare the needed evironment variable.
 
