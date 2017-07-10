@@ -5,6 +5,6 @@ import App from './App';
 import './styles/index.css';
 
 ReactDOM.render(
-  <App organisation="internet4000"/>,
+  <App organisation="internet4000" user="hugurp"/>,
   document.getElementById('root')
 );

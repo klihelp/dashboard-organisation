@@ -5,7 +5,7 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import { fetchEndpoint, getOrg } from './api';
+import { fetchEndpoint, getOrg, getUser } from './api';
 import Loading from './components/Loading';
 import Infos from './components/Infos';
 import Repos from './components/Repos';
@@ -24,15 +24,7 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		let organisation = this.props.organisation;
-
-		if (!organisation) {
-			return this.handleError('Parameter value <App organisation=""> is missing');
-		}
-
-		document.title = `${organisation} dashboard`
-
-		getOrg(organisation).then(orgData => {
+		this.setupEnv().then(orgData => {
 			fetchEndpoint(orgData.repos_url).then(reposData => {
 				fetchEndpoint(orgData.events_url).then(eventsData => {
 					this.setState({
@@ -47,9 +39,39 @@ class App extends Component {
 			})
 		}).catch(this.handleError);
 	}
+
 	componentDidUpdate() {
 		/* ReactDOM.findDOMNode(this.focusEl).focus();*/
 		this.focusEl.focus();
+	}
+
+	setupEnv() {
+		let organisation = process.env.D_ORGANISATION;
+		let user = process.env.D_USER;
+		let initialData;
+
+		console.log('Documentation: https://github.com/Internet4000/organisation-dashboard');
+
+		if (process.env.NODE_ENV !== 'production') {
+			/* organisation = 'internet4000';*/
+			user = 'hugurp';
+		}
+
+		if (organisation) {
+			initialData = getOrg(organisation);
+			this.setDocumentTitle(organisation)
+		} else if (user) {
+			initialData = getUser(user);
+			this.setDocumentTitle(user)
+		} else {
+			return this.handleError('ENV variable `D_ORGANISATION` or `D_USER` is missing. Check out the docs.');
+		}
+
+		return initialData;
+	}
+
+	setDocumentTitle(title) {
+		document.title = `${title} dashboard`
 	}
 
 	handleError(e) {
