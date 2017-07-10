@@ -50,7 +50,7 @@ class App extends Component {
 		let user = process.env.REACT_APP_USER;
 		let initialData;
 
-		console.log('Documentation: https://github.com/Internet4000/organisation-dashboard');
+		console.log('Documentation: https://github.com/internet4000/organisation-dashboard');
 
 		if (process.env.NODE_ENV !== 'production') {
 			/* organisation = 'internet4000';*/
