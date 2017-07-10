@@ -46,8 +46,8 @@ class App extends Component {
 	}
 
 	setupEnv() {
-		let organisation = process.env.D_ORGANISATION;
-		let user = process.env.D_USER;
+		let organisation = process.env.REACT_APP_ORGANISATION;
+		let user = process.env.REACT_APP_USER;
 		let initialData;
 
 		console.log('Documentation: https://github.com/Internet4000/organisation-dashboard');
@@ -64,7 +64,7 @@ class App extends Component {
 			initialData = getUser(user);
 			this.setDocumentTitle(user)
 		} else {
-			return this.handleError('ENV variable `D_ORGANISATION` or `D_USER` is missing. Check out the docs.');
+			return this.handleError('ENV variable `REACT_APP_ORGANISATION` or `REACT_APP_USER` is missing. Check out the docs.');
 		}
 
 		return initialData;
