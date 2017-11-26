@@ -1,6 +1,7 @@
 import React from 'react';
+import withScrollTop from './withScrollTop';
 
-export default function Help(props) {
+function Help(props) {
 	let { model } = props;
 	console.log('model', model)
 	return (
@@ -59,3 +60,5 @@ export default function Help(props) {
 		</div>
 	)
 }
+
+export default withScrollTop(Help);

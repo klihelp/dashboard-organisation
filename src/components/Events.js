@@ -1,8 +1,9 @@
 import React from 'react';
 import EventsGroup from './EventsGroup';
 import _ from 'lodash';
+import withScrollTop from './withScrollTop';
 
-export default function Events(props) {
+function Events(props) {
 	const groups =_.groupBy(props.events, 'repo.name');
 
 	return (
@@ -12,3 +13,5 @@ export default function Events(props) {
 		</div>
 	)
 }
+
+export default withScrollTop(Events);

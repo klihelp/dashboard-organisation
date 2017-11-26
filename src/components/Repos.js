@@ -1,8 +1,9 @@
 import React from 'react';
 import Loading from './Loading';
 import Repo from './Repo';
+import withScrollTop from './withScrollTop';
 
-export default function Repos(props) {
+function Repos(props) {
 	if (!props.repos) {
 		return <Loading message="Loading list..."/>
 	}
@@ -12,3 +13,5 @@ export default function Repos(props) {
 		</div>
 	)
 }
+
+export default withScrollTop(Repos);
