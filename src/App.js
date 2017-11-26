@@ -53,8 +53,8 @@ class App extends Component {
 		console.log('Documentation: https://github.com/internet4000/organisation-dashboard');
 
 		if (process.env.NODE_ENV !== 'production') {
-			/* organisation = 'internet4000';*/
-			user = 'hugurp';
+			organisation = 'internet4000';
+			/* user = 'hugurp';*/
 		}
 
 		if (organisation) {
