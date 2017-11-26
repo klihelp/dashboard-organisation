@@ -1,46 +1,68 @@
 /* dashboard-organisation */
-/* https://github.com/Internet4000/dashboard-organisation  */
+/* https://github.com/internet4000/dashboard-organisation  */
+
+@import './reset.css';
 
 *, *:before, *:after {
   box-sizing: border-box;
 }
 html {
   box-sizing: border-box;
-	overflow: -moz-scrollbars-none;
 }
 body {
   margin: 0;
   font-family: serif;
 	font-size: 17px;
 	line-height: 1.4;
-	overflow: hidden;
 }
 h1, h2, h3, h4, p {
-	margin-top: 0;
+	font-weight: bold;
 }
-a,
+h1 {
+	font-size: 2.3rem;
+}
+h2 {
+	font-size: 1.3rem;
+}
+a {
+	color: blue;
+	text-decoration: none;
+}
 a:visited {
-	color: rgb(0, 0, 238);
+	color: purple;
 }
 a:focus {
-    background-color: #c5c5c5;
+    background-color: darkgray;
+}
+strong {
+	font-weight: bold;
+}
+
+.Section {
+	padding-bottom: 2rem;
+	flex-grow: 1;
+}
+
+.Container {
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
 }
 
 .App {
 	display: flex;
-}
-section {
-	padding: 1rem;
-	height: 100vh;
-	overflow-x: scroll;
-	flex-grow: 1;
+	padding-top: 1rem;
 }
 .Aside {
-	max-width: 7rem;
+	margin-right: 1rem;
 }
 .Nav a {
-	padding-left: 0.4rem;
-	padding-right: 0.4rem;
+	padding: 0.4rem;
+}
+.Nav a:visited {
+	color: blue;
+}
+.Nav a.active {
+	background-color: lightgray;
 }
 .Nav--main {
 	display: flex;
@@ -50,27 +72,27 @@ section {
 .Repo {
 	margin-bottom: 1rem;
 }
+.Repo-nav {
+	display: flex;
+	align-items: center;
+}
 .Repo-body {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
 }
 
-.Issues,
-.PullRequests {
-  margin-left: 0.3rem;
-	padding-left: 0.3rem;
-	border-left: 3px solid transparent;
-}
 .PullRequests {
 	margin-bottom: 0.3rem;
-	border-left-color: black;
 }
 .EventsGroup {
 	padding-bottom: 1rem;
 }
 .Events {
 	padding-left: 1rem;
+}
+.Event {
+	margin-bottom: 1rem;
 }
 .Commits {
 	padding-left: 1rem;
@@ -84,4 +106,14 @@ section {
 	display: inline-block;
 	padding: 0.1rem;
 	min-width: 3rem;
+}
+
+.List--issues,
+.List--pullRequests {
+	border-left: 0.4rem solid transparent;
+	padding-left: 0.4rem;
+	margin-left: 0.4rem;
+}
+.List--pullRequests {
+	border-left-color: green;
 }

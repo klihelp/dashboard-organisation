@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import {
-  BrowserRouter as Router,
   Route,
-  Link
+  NavLink,
+	withRouter
 } from 'react-router-dom';
+import { HotKeys } from 'react-hotkeys';
 import { fetchEndpoint, getOrg, getUser } from './api';
 import Loading from './components/Loading';
-import Infos from './components/Infos';
+import Help from './components/Help';
 import Repos from './components/Repos';
 import EventsGroups from './components/EventsGroups';
-import Shortcuts from './components/Shortcuts';
 
 class App extends Component {
+
+	hotkeys = {
+		'1': () => this.props.history.push('/'),
+		'2': () => this.props.history.push('/events'),
+		'3': () => this.props.history.push('/help')
+	}
 
 	constructor() {
 		super();
@@ -85,26 +90,29 @@ class App extends Component {
 		}
 
 		return (
-			<Router>
-				<div className="App">
-					<section tabIndex="-1" className="Aside">
+			<HotKeys focused attach={ document } handlers={ this.hotkeys }>
+				<div className="App Container">
+					<section tabIndex="-1" className="Aside Container">
 						<nav className="Nav Nav--main">
-							<Link to="/" >repos</Link>
-							<Link to="/events">events</Link>
-							<Link to="/infos">infos</Link>
-							<Link to="/shortcuts">shortcuts</Link>
+							<h1 className="SiteTitle">
+								⛅☀
+							</h1>
+							<NavLink exact to="/" >repos(1)</NavLink>
+							<NavLink to="/events">events(2)</NavLink>
+							<NavLink to="/help">help(3)</NavLink>
 						</nav>
 					</section>
-					<section ref={ focusEl => { this.focusEl = focusEl } }>
-						<Route path="/infos" component={ () => ( <Infos model={ this.state.orgData }/> ) }/>
+					<section
+						ref={ focusEl => { this.focusEl = focusEl } }
+						className="Container">
 						<Route exact path="/" component={ () => ( <Repos repos={ this.state.reposData }/> ) }/>
 						<Route path="/events" component={ () => ( <EventsGroups events={ this.state.eventsData }/> ) }/>
-						<Route path="/shortcuts" component={ Shortcuts }/>
+						<Route path="/help" component={ () => ( <Help model={ this.state.orgData }/> ) }/>
 					</section>
 				</div>
-			</Router>
+			</HotKeys>
 		)
 	}
 }
 
-export default App;
+export default withRouter(App);

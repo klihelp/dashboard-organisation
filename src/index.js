@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'whatwg-fetch';
-import App from './App';
+import Root from './Root';
 import './styles/index.css';
 
 ReactDOM.render(
-  <App/>,
+  <Root/>,
   document.getElementById('root')
 );

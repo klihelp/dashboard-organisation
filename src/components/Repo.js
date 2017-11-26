@@ -39,7 +39,11 @@ pushed: ${repo.pushed_at}`
 		return (
 			<article className="Repo">
 				<nav className="Repo-nav Nav">
-					<strong title={ repo.description }>{repo.name}</strong>
+					<h2
+						className="Repo-title"
+						title={ repo.description }>
+						{repo.name}
+					</h2>
 					<a href={ repo.html_url } title={ this.getDates() }>gh</a>
 					{ repo.homepage && <a href={ repo.homepage }>site</a> }
 				</nav>
