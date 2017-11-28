@@ -6,8 +6,7 @@ export default function Repos(props) {
 		return null;
 	}
 	return (
-		<div className="PullRequests">
-			<span>PR:</span>
+		<div className="PullRequests" title="Pull requests">
 			<div className="List List--pullRequests">
 				{ props.items.map((repo, i) => <PullRequest key={i} data={repo} />) }
 			</div>

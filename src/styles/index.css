@@ -117,3 +117,6 @@ strong {
 .List--pullRequests {
 	border-left-color: green;
 }
+.List--issues {
+	border-left-color: lightgray;
+}
