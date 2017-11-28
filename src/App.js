@@ -13,10 +13,23 @@ import EventsGroups from './components/EventsGroups';
 
 class App extends Component {
 
+	focusSearch() {
+		const searchEls = [...document.querySelectorAll('input[type="search"]')]
+		searchEls[0].focus();
+	}
+
+	clearFocus() {
+		console.log('clearFocus')
+		window.focus();
+	}
+
 	hotkeys = {
 		'1': () => this.props.history.push('/'),
 		'2': () => this.props.history.push('/events'),
-		'3': () => this.props.history.push('/help')
+		'3': () => this.props.history.push('/help'),
+		's': () => this.focusSearch(),
+		'escape': () => this.clearFocus(),
+
 	}
 
 	constructor() {
@@ -104,7 +117,7 @@ class App extends Component {
 					</section>
 					<section
 						ref={ focusEl => { this.focusEl = focusEl } }
-						className="Container">
+						className="Container Container--full">
 						<Route exact path="/" component={ () => ( <Repos repos={ this.state.reposData }/> ) }/>
 						<Route path="/events" component={ () => ( <EventsGroups events={ this.state.eventsData }/> ) }/>
 						<Route path="/help" component={ () => ( <Help model={ this.state.orgData }/> ) }/>
