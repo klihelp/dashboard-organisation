@@ -10,7 +10,8 @@ class Repos extends Component {
 		super();
 
 		this.state = {
-			jetsSearch: ''
+			jetsSearch: '',
+			jets: {}
 		}
 	}
 
@@ -23,6 +24,10 @@ class Repos extends Component {
 		this.state = {
 			jets
 		}
+	}
+
+	componentWillUnmount() {
+		this.state.jets.destroy();
 	}
 
 	handleSearch = (e) => {

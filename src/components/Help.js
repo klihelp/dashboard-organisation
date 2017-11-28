@@ -21,19 +21,22 @@ function Help(props) {
 			<section className="Section Shortcuts">
 				<h2>Shortcuts</h2>
 				<article className="Shortcut">
-					<pre className="Shortcut-key">TAB</pre> move focus to next link
+					<pre className="Shortcut-key">tab</pre> move focus to next link
 				</article>
 				<article className="Shortcut">
-					<pre className="Shortcut-key">shift + TAB</pre> move focus to previous link
+					<pre className="Shortcut-key">S-tab</pre> move focus to previous link
 				</article>
 				<article className="Shortcut">
-					<pre className="Shortcut-key">SPACE</pre> scroll viewport down of one screen
+					<pre className="Shortcut-key">space</pre> scroll viewport down of one screen
 				</article>
 				<article className="Shortcut">
-					<pre className="Shortcut-key">shift + SPACE</pre> scroll viewport up of one screen
+					<pre className="Shortcut-key">S-space</pre> scroll viewport up of one screen
 				</article>
 				<article className="Shortcut">
-					<pre className="Shortcut-key">CTRL + F</pre> opens Firefox default search
+					<pre className="Shortcut-key">s</pre> focus the search input if there is one
+				</article>
+				<article className="Shortcut">
+					<pre className="Shortcut-key">CTRL + F</pre> opens Firefox/Chrome/Chromium default site search
 				</article>
 			</section>
 
