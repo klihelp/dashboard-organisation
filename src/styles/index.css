@@ -38,9 +38,14 @@ strong {
 	font-weight: bold;
 }
 
+input {
+	margin-bottom: 1rem;
+}
+
 input[type="search"] {
-	width: 100%;
   padding: 0.5rem;
+	width: 100%;
+	max-width: 30rem;
 }
 
 /*
@@ -67,6 +72,10 @@ input[type="search"] {
 .Container {
 	padding-left: 0.5rem;
 	padding-right: 0.5rem;
+	max-width: 60rem;
+}
+.Container--full {
+	width: 100%;
 }
 
 
