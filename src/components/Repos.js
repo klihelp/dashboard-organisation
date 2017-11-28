@@ -53,6 +53,7 @@ class Repos extends Component {
 				type="search"
 				name="jetsSearch"
 				id="jetsSearch"
+				title="Press `s` to focus this search, `tab` to unfocus"
 				placeholder="Filter"
 				onChange={ this.handleSearch }
 				value={ jetsSearch } />
