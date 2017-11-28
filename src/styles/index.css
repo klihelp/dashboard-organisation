@@ -38,6 +38,27 @@ strong {
 	font-weight: bold;
 }
 
+input[type="search"] {
+	width: 100%;
+  padding: 0.5rem;
+}
+
+/*
+	App main elements
+ */
+
+.App {
+	display: flex;
+	padding-top: 1rem;
+}
+.Aside {
+	margin-right: 1rem;
+}
+
+/*
+	Vertical and horiwontal flow
+ */
+
 .Section {
 	padding-bottom: 2rem;
 	flex-grow: 1;
@@ -48,13 +69,11 @@ strong {
 	padding-right: 0.5rem;
 }
 
-.App {
-	display: flex;
-	padding-top: 1rem;
-}
-.Aside {
-	margin-right: 1rem;
-}
+
+/*
+	Navigation
+*/
+
 .Nav a {
 	padding: 0.4rem;
 }
@@ -69,6 +88,30 @@ strong {
 	flex-direction: column;
 	min-width: 5rem;
 }
+
+
+/*
+	List
+*/
+
+.List--issues,
+.List--pullRequests {
+	border-left: 0.4rem solid transparent;
+	padding-left: 0.4rem;
+	margin-left: 0.4rem;
+}
+.List--pullRequests {
+	border-left-color: green;
+}
+.List--issues {
+	border-left-color: lightgray;
+}
+
+
+/*
+	Repositories
+*/
+
 .Repo {
 	margin-bottom: 1rem;
 }
@@ -88,6 +131,12 @@ strong {
 .EventsGroup {
 	padding-bottom: 1rem;
 }
+
+
+/*
+	Events
+*/
+
 .Events {
 	padding-left: 1rem;
 }
@@ -106,17 +155,4 @@ strong {
 	display: inline-block;
 	padding: 0.1rem;
 	min-width: 3rem;
-}
-
-.List--issues,
-.List--pullRequests {
-	border-left: 0.4rem solid transparent;
-	padding-left: 0.4rem;
-	margin-left: 0.4rem;
-}
-.List--pullRequests {
-	border-left-color: green;
-}
-.List--issues {
-	border-left-color: lightgray;
 }
