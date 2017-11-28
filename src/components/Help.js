@@ -38,6 +38,11 @@ function Help(props) {
 			</section>
 
 			<section className="Section">
+				<h2>How to get more help?</h2>
+				<p>Hover with your mouse the elements you want to know more details about.</p>
+			</section>
+
+			<section className="Section">
 				<h2>Debug</h2>
 				<ul>
 					<li>
