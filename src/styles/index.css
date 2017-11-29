@@ -59,6 +59,12 @@ input[type="search"] {
 .Aside {
 	margin-right: 1rem;
 }
+.SiteFooter {
+	position: fixed;
+	bottom:0;
+	right: 0;
+	padding: 1rem;
+}
 
 /*
 	Vertical and horiwontal flow

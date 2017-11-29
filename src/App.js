@@ -105,7 +105,10 @@ class App extends Component {
 		return (
 			<HotKeys focused attach={ document } handlers={ this.hotkeys }>
 				<div className="App Container">
-					<section tabIndex="-1" className="Aside Container">
+					<section
+						className="Aside Container"
+						tabIndex="-1"
+					>
 						<nav className="Nav Nav--main">
 							<h1 className="SiteTitle">
 								⛅☀
@@ -116,12 +119,16 @@ class App extends Component {
 						</nav>
 					</section>
 					<section
+						className="Container Container--full"
 						ref={ focusEl => { this.focusEl = focusEl } }
-						className="Container Container--full">
+					>
 						<Route exact path="/" component={ () => ( <Repos repos={ this.state.reposData }/> ) }/>
 						<Route path="/events" component={ () => ( <EventsGroups events={ this.state.eventsData }/> ) }/>
 						<Route path="/help" component={ () => ( <Help model={ this.state.orgData }/> ) }/>
 					</section>
+					<footer className="SiteFooter" tabIndex="0">
+						<a href="https://github.com/internet4000/dashboard-organisation">code</a>
+					</footer>
 				</div>
 			</HotKeys>
 		)
