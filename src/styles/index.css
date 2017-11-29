@@ -48,6 +48,17 @@ input[type="search"] {
 	max-width: 30rem;
 }
 
+/* Shortcuts */
+kbd {
+	font-family: monospace;
+	display: inline-block;
+	padding-right: 0.5rem;
+	padding-left: 0.5rem;
+	margin-bottom: 0.4rem;
+	border: 1px solid black;
+	box-shadow: 1px 2px 3px black;
+}
+
 /*
 	App main elements
  */
@@ -163,11 +174,4 @@ input[type="search"] {
 }
 .Commit {
 	margin-bottom: 0;
-}
-
-/* Shortcuts */
-.Shortcut-key {
-	display: inline-block;
-	padding: 0.1rem;
-	min-width: 3rem;
 }
