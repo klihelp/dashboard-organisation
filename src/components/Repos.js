@@ -35,7 +35,6 @@ class Repos extends Component {
 	    [e.target.name] : e.target.value
 		});
 		this.state.jets.search(e.target.value)
-		console.log('this.state.jets', this.state.jets)
 	}
 
 	render() {
