@@ -4,39 +4,19 @@ import {
   NavLink,
 	withRouter
 } from 'react-router-dom';
-import { HotKeys } from 'react-hotkeys';
 import { fetchEndpoint, getOrg, getUser } from './api';
 import Loading from './components/Loading';
 import Help from './components/Help';
 import Repos from './components/Repos';
 import EventsGroups from './components/EventsGroups';
+import HotKeysGlobal from './components/HotKeysGlobal.js';
 
-const onKeyUp = (key) => ({ sequence: key, action: 'keyup' })
 
 class App extends Component {
 
 	focusSearch() {
 		const searchEls = [...document.querySelectorAll('input[type="search"]')]
 		searchEls[0].focus();
-	}
-
-	clearFocus() {
-		console.log('clearFocus')
-		window.focus();
-	}
-
-	keyMap = {
-		'focusSearch': onKeyUp('s'),
-		'gotoRepos': onKeyUp('1'),
-		'gotoEvents': onKeyUp('2'),
-		'gotoHelp': onKeyUp('3')
-	}
-
-	keyHandlers = {
-		'gotoRepos': () => this.props.history.push('/'),
-		'gotoEvents': () => this.props.history.push('/events'),
-		'gotoHelp': () => this.props.history.push('/help'),
-		'focusSearch': () => this.focusSearch()
 	}
 
 	constructor() {
@@ -66,7 +46,6 @@ class App extends Component {
 	}
 
 	componentDidUpdate() {
-		/* ReactDOM.findDOMNode(this.focusEl).focus();*/
 		this.focusEl.focus();
 	}
 
@@ -104,17 +83,15 @@ class App extends Component {
 	}
 
 	render() {
-
 		if (!this.state.orgData) {
-			return <section><Loading message="Loading organisation data..."/></section>
+			return <section><Loading message="Loading organisation data..."/></section>;
 		}
 
 		return (
-			<HotKeys
-				focused
-				attach={ document }
-				handlers={ this.keyHandlers }
-				keyMap={ this.keyMap }>
+
+			<HotKeysGlobal
+				focusSearch={ this.focusSearch }
+				history={ this.props.history }>
 				<div className="App Container">
 					<section
 						className="Aside Container"
@@ -141,7 +118,7 @@ class App extends Component {
 						<a href="https://github.com/internet4000/dashboard-organisation">code</a>
 					</footer>
 				</div>
-			</HotKeys>
+			</HotKeysGlobal>
 		)
 	}
 }
