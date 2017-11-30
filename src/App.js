@@ -11,6 +11,8 @@ import Help from './components/Help';
 import Repos from './components/Repos';
 import EventsGroups from './components/EventsGroups';
 
+const onKeyUp = (key) => ({ sequence: key, action: 'keyup' })
+
 class App extends Component {
 
 	focusSearch() {
@@ -23,13 +25,18 @@ class App extends Component {
 		window.focus();
 	}
 
-	hotkeys = {
-		'1': () => this.props.history.push('/'),
-		'2': () => this.props.history.push('/events'),
-		'3': () => this.props.history.push('/help'),
-		's': () => this.focusSearch(),
-		'escape': () => this.clearFocus(),
+	keyMap = {
+		'focusSearch': onKeyUp('s'),
+		'gotoRepos': onKeyUp('1'),
+		'gotoEvents': onKeyUp('2'),
+		'gotoHelp': onKeyUp('3')
+	}
 
+	keyHandlers = {
+		'gotoRepos': () => this.props.history.push('/'),
+		'gotoEvents': () => this.props.history.push('/events'),
+		'gotoHelp': () => this.props.history.push('/help'),
+		'focusSearch': () => this.focusSearch()
 	}
 
 	constructor() {
@@ -103,7 +110,11 @@ class App extends Component {
 		}
 
 		return (
-			<HotKeys focused attach={ document } handlers={ this.hotkeys }>
+			<HotKeys
+				focused
+				attach={ document }
+				handlers={ this.keyHandlers }
+				keyMap={ this.keyMap }>
 				<div className="App Container">
 					<section
 						className="Aside Container"
